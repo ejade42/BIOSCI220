@@ -1,0 +1,26 @@
+Package: BIOSCI220
+Type: Package
+Title: Helper functions for BIOSCI 220 at the University of Auckland
+Version: 0.1.0.9000
+Authors@R: c(
+    person(
+      "Evelyn", "Jade",
+      email = "evelyn.jade@auckland.ac.nz",
+      role = c("aut", "cre")
+    ),
+    person(
+      "Jenn", "Jury",
+      email = "jenn.jury@auckland.ac.nz",
+      role = c("cph")
+    )
+  )
+Description: Helper functions for BIOSCI 220 at the University of Auckland
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.3
+Imports: 
+    rlang
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
