@@ -80,10 +80,6 @@ plot_example_data <- function(example_graph_data) {
             abort(paste0("Input covid data must have a '", colname, "' column."), class = "missing_column")
         }
     }
-    # Check log_scale is a single bool
-    if (length(log_scale) != 1 || !is.logical(log_scale)) {
-        abort("log_scale must be a single TRUE/FALSE value", class = "bad_input")
-    }
     # Check data is NZ
     locations <- unique(example_graph_data$location)
     if (length(locations) != 1 || locations != "New Zealand") {
