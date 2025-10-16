@@ -1,3 +1,12 @@
+#' Calculate the number of active and recovered cases from daily new cases
+#'
+#' This function uses the daily new case numbers to calculate "active" cases (from the last 14 days)
+#' and "recovered" cases (from before the last 14 days), in a dataframe that [ggplot2::ggplot()] can read.
+#'
+#' @param my_country_data `dataframe`. The covid data from Our World In Data, filtered to be from just one location/country.
+#'
+#' @return `dataframe`. A new dataframe of location, date, current active cases (new cases from the last 14 days), and current recovered cases (cases from before the last 14 days).
+#' @export
 calculate_active_recovered_cases <- function(my_country_data) {
     # Check correct columns are present
     for (colname in c("location", "new_cases", "date")) {
@@ -56,8 +65,15 @@ calculate_active_recovered_cases <- function(my_country_data) {
     return(my_graph_data)
 }
 
-
-plot_example_data <- function(example_graph_data, log_scale = FALSE) {
+#' Make the example New Zealand plot
+#'
+#' This function creates the example New Zealand active and recovered cases plot we want you to replicate.
+#'
+#' @param example_graph_data `dataframe`. The active and recovered cases data for New Zealand, obtained from [calculate_active_recovered_cases()].
+#'
+#' @return `ggplot`. The example New Zealand plot we want you to replicate for your country of choice.
+#' @export
+plot_example_data <- function(example_graph_data) {
     # Check correct columns are present
     for (colname in c("location", "date", "cases", "type")) {
         if (!(colname %in% colnames(example_graph_data))) {
@@ -81,11 +97,6 @@ plot_example_data <- function(example_graph_data, log_scale = FALSE) {
         scale_x_date(date_labels = "%b %Y") +
         labs(x = "Date", y = "New Zealand cases", col = "Case type") +
         theme_bw()
-
-    # Log-scale y axis if necessary
-    if (log_scale) {
-        plot <- plot + scale_y_log10() + labs(y = "New Zealand cases (log scale)")
-    }
 
     # Return plot
     return(plot)
