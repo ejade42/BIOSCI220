@@ -73,7 +73,7 @@ calculate_active_recovered_cases <- function(my_country_data) {
 #'
 #' @return `ggplot`. The example New Zealand plot we want you to replicate for your country of choice.
 #' @export
-plot_example_data <- function(example_graph_data) {
+ggplot_nz_example <- function(example_graph_data) {
     # Check correct columns are present
     for (colname in c("location", "date", "cases", "type")) {
         if (!(colname %in% colnames(example_graph_data))) {

@@ -21,5 +21,5 @@ test_that("Calculate active recovered cases rejects bad data", {
 })
 
 test_that("Example plot construction works", {
-    expect_true("ggplot" %in% class(plot_example_data(nz_graph_data)))
+    expect_true("ggplot" %in% class(ggplot_nz_example(nz_graph_data)))
 })
